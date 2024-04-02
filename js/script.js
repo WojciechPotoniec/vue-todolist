@@ -10,7 +10,10 @@ createApp({
             todo,
         };
     },
-    mounted(){
+    methods:{
         
+    },
+    mounted(){
+
     }
 }).mount('app');
