@@ -11,9 +11,9 @@ createApp({
         };
     },
     methods:{
-        
+
     },
     mounted(){
 
     }
-}).mount('app');
+}).mount('#app');
