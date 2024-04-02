@@ -24,7 +24,7 @@
         <div class="logo">
           <img src="img/boolean-logo.png" alt="Boolean logo" />
         </div>
-        <select class="btn btn-outline-light" name="" id="">
+        <select class="btn btn-outline-light" name="done" id="done">
           <option value="">All</option>
           <option value="">Completed</option>
           <option value="">To Complete</option>
@@ -34,21 +34,19 @@
         <div class="bg-light rounded-2 p-2">
           <h1>Lista cose:</h1>
           <ul class="list-group list-group-flush">
-            <li
-              class="list-group-item d-flex justify-content-between"
-              v-for="(item) in todo"
-              :key="item.id"
-            >
-              <span>{{item.text}}</span>
-              <i class="fa-solid fa-trash"></i>
+            <li class="list-group-item d-flex justify-content-between" v-for="(item) in todo" :key="item.id">
+              <span :class="{'text-decoration-line-through': item.done}" @click="toggleDone(item.id)" class="pointer">
+                {{item.text}}
+              </span>
+              <i class="fa-solid fa-trash pointer" @click="deleteItem(item.id)"></i>
             </li>
           </ul>
         </div>
         <div>
           <div class="mb-3">
             <label for="todotext" class="form-label pt-4">Inserisci nella lista</label>
-            <input type="text" class="form-control" id="todotext" />
-            <button class="btn btn-dark my-2">Add</button>
+            <input type="text" class="form-control" id="todotext" v-model="itemText" @keyup.enter="addItem"/>
+            <button class="btn btn-dark my-2" @click="addItem">Add</button>
           </div>
         </div>
       </main>
