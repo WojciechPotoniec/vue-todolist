@@ -24,18 +24,19 @@
         <div class="logo">
           <img src="img/boolean-logo.png" alt="Boolean logo" />
         </div>
-        <select class="btn btn-outline-light" name="done" id="done">
+        <select class="btn btn-outline-light" name="done" id="done" v-model="done">
           <option value="">All</option>
-          <option value="">Completed</option>
-          <option value="">To Complete</option>
+          <option value="true">Completed</option>
+          <option value="false">To Complete</option>
         </select>
       </header>
       <main class="container-fluid p-4 bg-secondary">
         <div class="bg-light rounded-2 p-2">
           <h1>Lista cose:</h1>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between" v-for="(item) in todo" :key="item.id">
-              <span :class="{'text-decoration-line-through': item.done}" @click="toggleDone(item.id)" class="pointer">
+            <li class="list-group-item d-flex justify-content-between" v-for="(item) in filteredList" :key="item.id">
+              <span :class="{'': item.done}" @click="toggleDone(item.id)" class="pointer">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 {{item.text}}
               </span>
               <i class="fa-solid fa-trash pointer" @click="deleteItem(item.id)"></i>

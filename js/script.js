@@ -47,7 +47,7 @@ createApp({
     },
   },
   computed: {
-    filteredTodo() {
+    filteredList() {
       return this.todo.filter((el) => {
         if (this.done === "") {
           return true;
