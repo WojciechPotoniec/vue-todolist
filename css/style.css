@@ -9,3 +9,6 @@ header{
 .logo img{
     height: 100%;
 }
+.pointer{
+    cursor: pointer;
+}
